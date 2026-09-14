@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YBSZ — TODAY</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+:root {
+  --black:#070707;
+  --dark:#0d0d0d;
+  --line:#292929;
+  --grey:#999;
+  --chrome:#c9c9c9;
+  --white:#f4f4f2;
+  --red:#d51f2c;
+  --display:"Space Grotesk",sans-serif;
+  --body:"DM Sans",sans-serif;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+}
+
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--body);
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+button {
+  font-family:var(--body);
+  cursor:pointer;
+}
+
+.site {
+  overflow:hidden;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.navbar {
+  height:78px;
+  padding:0 6vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,7,7,.92);
+  backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo {
+  font-family:var(--display);
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-2px;
+}
+
+.logo span {
+  color:var(--chrome);
+}
+
+.logo sup {
+  color:var(--red);
+  font-size:8px;
+  margin-left:4px;
+}
+
+.nav-menu {
+  display:flex;
+  gap:35px;
+}
+
+.nav-menu a {
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.7px;
+  transition:.25s;
+}
+
+.nav-menu a:hover {
+  color:var(--red);
+}
+
+.menu-btn {
+  display:none;
+  border:none;
+  background:none;
+  color:white;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height:760px;
+  padding:25px 6vw 35px;
+  max-width:1500px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+}
+
+.hero-meta {
+  display:flex;
+  justify-content:space-between;
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--grey);
+  font-weight:700;
+}
+
+.hero-main {
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.hero-copy {
+  position:relative;
+  z-index:5;
+  max-width:900px;
+}
+
+.small-title {
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.hero h1 {
+  font-family:var(--display);
+  font-size:clamp(65px,12vw,170px);
+  line-height:.86;
+  letter-spacing:-7px;
+}
+
+.hero h1 span {
+  display:block;
+  color:transparent;
+  -webkit-text-stroke:1px var(--chrome);
+  margin-left:10%;
+}
+
+.hero-copy > p {
+  margin-top:40px;
+  color:var(--grey);
+  max-width:330px;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.hero-link {
+  display:inline-flex;
+  align-items:center;
+  gap:35px;
+  margin-top:25px;
+  border-bottom:1px solid white;
+  padding-bottom:10px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+.hero-link b {
+  color:var(--red);
+  font-size:17px;
+}
+
+.hero-symbol {
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(44vw,550px);
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+}
+
+.circle {
+  position:absolute;
+  border:1px solid #282828;
+  border-radius:50%;
+}
+
+.circle-one {
+  inset:0;
+  animation:spin 22s linear infinite;
+}
+
+.circle-two {
+  inset:12%;
+  border-color:#353535;
+  transform:scaleX(.5) rotate(25deg);
+  animation:spinReverse 17s linear infinite;
+}
+
+.yb-symbol {
+  font-family:var(--display);
+  font-size:clamp(100px,17vw,240px);
+  font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1px #555;
+  transform:rotate(-12deg);
+}
+
+.vertical-text {
+  position:absolute;
+  right:-20px;
+  bottom:20%;
+  transform:rotate(-90deg);
+  color:#666;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+.scroll {
+  color:#666;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes spin {
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  to {
+    transform:scaleX(.5) rotate(-335deg);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform:translateX(-33.333%);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity:.45;
+  }
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee {
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:21px 0;
+  white-space:nowrap;
+}
+
+.marquee-inner {
+  display:flex;
+  width:max-content;
+  animation:marquee 22s linear infinite;
+}
+
+.marquee span {
+  font-family:var(--display);
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:-1px;
+  padding-right:40px;
+  color:var(--chrome);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section,
+.timeline-section,
+.district-section {
+  padding:120px 6vw;
+}
+
+.section {
+  max-width:1500px;
+  margin:auto;
+}
+
+.section-label {
+  display:flex;
+  gap:20px;
+  color:#777;
+  border-bottom:1px solid var(--line);
+  padding-bottom:25px;
+  margin-bottom:70px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.section-label span:first-child {
+  color:var(--red);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+}
+
+.about-grid h2,
+.identity-intro h2,
+.join-section h2 {
+  font-family:var(--display);
+  font-size:clamp(48px,6vw,85px);
+  line-height:.9;
+  letter-spacing:-4px;
+}
+
+.about-text {
+  max-width:510px;
+}
+
+.big-text {
+  font-size:clamp(20px,2.3vw,29px);
+  line-height:1.25;
+  margin-bottom:35px;
+}
+
+.about-text p:not(.big-text) {
+  color:var(--grey);
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-section {
+  background:#0d0d0d;
+  max-width:none;
+}
+
+.timeline {
+  max-width:1050px;
+  margin:auto;
+  border-left:1px solid #343434;
+}
+
+.timeline-item {
+  position:relative;
+  padding:35px 45px;
+  border-bottom:1px solid var(--line);
+}
+
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-5px;
+  top:44px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  border:1px solid #555;
+  background:#0d0d0d;
+}
+
+.timeline-item.current::before {
+  background:var(--red);
+  border-color:var(--red);
+  box-shadow:0 0 0 5px rgba(213,31,44,.13);
+}
+
+.timeline-item span {
+  font-size:9px;
+  color:var(--red);
+  letter-spacing:2px;
+}
+
+.timeline-item h3 {
+  font-family:var(--display);
+  font-size:clamp(25px,3vw,42px);
+  letter-spacing:-1px;
+  margin:7px 0;
+}
+
+.timeline-item p {
+  color:var(--grey);
+}
+
+
+/* =========================
+   IDENTITY
+========================= */
+
+.identity-intro {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:end;
+  margin-bottom:55px;
+}
+
+.identity-intro p {
+  color:var(--grey);
+  max-width:280px;
+  line-height:1.6;
+}
+
+.identity-grid {
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:16px;
+}
+
+.identity-card {
+  min-height:290px;
+  border:1px solid var(--line);
+  background:#111;
+  position:relative;
+  overflow:hidden;
+}
+
+.identity-card.large {
+  grid-row:span 2;
+  min-height:600px;
+}
+
+.fake-type {
+  position:absolute;
+  inset:35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  font-family:var(--display);
+  font-size:clamp(30px,5vw,70px);
+  line-height:.86;
+  letter-spacing:-4px;
+}
+
+.fake-type span {
+  color:#777;
+}
+
+.fake-type strong {
+  color:var(--chrome);
+}
+
+.fake-logo {
+  height:100%;
+  display:grid;
+  place-items:center;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:150px;
+  color:transparent;
+  -webkit-text-stroke:1px #555;
+  transform:rotate(-10deg);
+}
+
+.red-card {
+  background:var(--red);
+}
+
+.tag {
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(30px,4vw,60px);
+  position:absolute;
+  left:30px;
+  top:50%;
+  transform:rotate(-8deg) translateY(-50%);
+}
+
+.card-info {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:22px;
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.card-info small {
+  color:#aaa;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+.card-info b {
+  font-family:var(--display);
+  font-size:15px;
+}
+
+
+/* =========================
+   DISTRICT
+========================= */
+
+.district-section {
+  background:#101010;
+}
+
+.district-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:55px;
+}
+
+.district-head small {
+  color:var(--red);
+  font-size:9px;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.district-head h2 {
+  font-family:var(--display);
+  font-size:clamp(70px,12vw,160px);
+  line-height:.82;
+  letter-spacing:-7px;
+  color:var(--chrome);
+  margin-top:20px;
+}
+
+.coming {
+  color:var(--red);
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(25px,3vw,45px);
+  line-height:.9;
+  text-align:right;
+  animation:pulse 2s ease-in-out infinite;
+}
+
+.district-box {
+  min-height:600px;
+  border:1px solid #303030;
+  background:
+    radial-gradient(circle at center,#242424 0%,#121212 35%,#090909 75%);
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.district-box::before,
+.district-box::after {
+  content:"";
+  position:absolute;
+  border:1px solid #282828;
+  border-radius:50%;
+}
+
+.district-box::before {
+  width:520px;
+  height:520px;
+}
+
+.district-box::after {
+  width:700px;
+  height:700px;
+}
+
+.district-logo {
+  position:relative;
+  z-index:2;
+  font-family:var(--display);
+  font-size:clamp(100px,20vw,260px);
+  font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1px #777;
+  transform:rotate(-10deg);
+}
+
+.district-stamp {
+  position:absolute;
+  top:25px;
+  left:25px;
+  color:#777;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+.district-center {
+  position:absolute;
+  z-index:3;
+  bottom:40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.district-center span {
+  font-size:8px;
+  letter-spacing:3px;
+  color:#777;
+}
+
+.district-center strong {
+  color:var(--red);
+  font-family:var(--display);
+  font-size:16px;
+  letter-spacing:2px;
+}
+
+.district-footer {
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  padding-top:25px;
+  color:var(--grey);
+}
+
+.district-footer p {
+  max-width:400px;
+}
+
+
+/* =========================
+   JOIN
+========================= */
+
+.join-section h2 {
+  font-size:clamp(65px,10vw,140px);
+}
+
+.join-intro {
+  color:var(--grey);
+  font-size:18px;
+  margin-top:40px;
+  max-width:500px;
+}
+
+.join-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:65px;
+}
+
+.join-card {
+  min-height:250px;
+  padding:25px;
+  border:1px solid var(--line);
+  position:relative;
+  transition:.3s ease;
+}
+
+.join-card:hover {
+  background:#171717;
+  border-color:#555;
+  transform:translateY(-5px);
+}
+
+.join-card > span {
+  color:var(--red);
+  font-size:9px;
+}
+
+.join-card h3 {
+  font-family:var(--display);
+  font-size:30px;
+  letter-spacing:-1px;
+  margin-top:65px;
+}
+
+.join-card p {
+  color:var(--grey);
+  font-size:11px;
+}
+
+.join-card b {
+  position:absolute;
+  top:23px;
+  right:25px;
+  color:var(--chrome);
+  font-size:20px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  max-width:1500px;
+  margin:auto;
+  padding:75px 6vw 25px;
+  border-top:1px solid var(--line);
+}
+
+.footer-main {
+  display:flex;
+  justify-content:space-between;
+  gap:50px;
+  margin-bottom:80px;
+}
+
+.footer-main h2 {
+  font-family:var(--display);
+  font-size:60px;
+  letter-spacing:-4px;
+}
+
+.footer-main sup {
+  color:var(--red);
+  font-size:10px;
+}
+
+.footer-main p {
+  color:var(--grey);
+  font-size:9px;
+  letter-spacing:2px;
+  margin-top:15px;
+}
+
+.footer-nav {
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.footer-nav a {
+  font-size:9px;
+  letter-spacing:1.5px;
+  font-weight:700;
+}
+
+.footer-nav a:hover {
+  color:var(--red);
+}
+
+.footer-bottom {
+  border-top:1px solid var(--line);
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#666;
+  font-size:8px;
+  letter-spacing:1.5px;
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
+
+  .navbar {
+    height:70px;
+    padding:0 5vw;
+  }
+
+  .menu-btn {
+    display:block;
+    position:relative;
+    z-index:1002;
+  }
+
+  .nav-menu {
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    padding:30px 5vw;
+    background:#080808;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .nav-menu.active {
+    display:flex;
+  }
+
+  .hero {
+    min-height:700px;
+    padding:22px 5vw 30px;
+  }
+
+  .hero-meta span:last-child {
+    display:none;
+  }
+
+  .hero-main {
+    min-height:540px;
+  }
+
+  .hero h1 {
+    font-size:clamp(55px,16vw,100px);
+    letter-spacing:-4px;
+  }
+
+  .hero h1 span {
+    margin-left:4%;
+  }
+
+  .hero-symbol {
+    width:100vw;
+    right:-45vw;
+    opacity:.5;
+  }
+
+  .hero-copy {
+    max-width:90%;
+  }
+
+  .hero-copy > p {
+    margin-top:30px;
+  }
+
+  .section,
+  .timeline-section,
+  .district-section {
+    padding:80px 5vw;
+  }
+
+  .section-label {
+    margin-bottom:50px;
+  }
+
+  .about-grid,
+  .identity-intro {
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .about-grid h2,
+  .identity-intro h2 {
+    font-size:52px;
+  }
+
+  .timeline-item {
+    padding:30px;
+  }
+
+  .identity-grid {
+    grid-template-columns:1fr;
+  }
+
+  .identity-card.large {
+    grid-row:auto;
+    min-height:420px;
+  }
+
+  .identity-card {
+    min-height:280px;
+  }
+
+  .district-head {
+    align-items:start;
+    flex-direction:column;
+  }
+
+  .district-head h2 {
+    font-size:90px;
+    letter-spacing:-5px;
+  }
+
+  .coming {
+    text-align:left;
+  }
+
+  .district-box {
+    min-height:430px;
+  }
+
+  .district-box::before {
+    width:300px;
+    height:300px;
+  }
+
+  .district-box::after {
+    width:420px;
+    height:420px;
+  }
+
+  .district-footer {
+    flex-direction:column;
+  }
+
+  .join-section h2 {
+    font-size:75px;
+    letter-spacing:-4px;
+  }
+
+  .join-grid {
+    grid-template-columns:1fr;
+    margin-top:45px;
+  }
+
+  .join-card {
+    min-height:190px;
+  }
+
+  .join-card h3 {
+    margin-top:40px;
+  }
+
+  .footer-main {
+    flex-direction:column;
+    margin-bottom:55px;
+  }
+
+  .footer-main h2 {
+    font-size:50px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+  html {
+    scroll-behavior:auto;
+  }
+
+  .marquee-inner,
+  .circle {
+    animation:none;
+  }
+
+  .reveal {
+    opacity:1;
+    transform:none;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="site">
+
+<header class="navbar">
+
+  <a href="#home" class="logo">
+    YB<span>SZ</span><sup>®</sup>
+  </a>
+
+  <button class="menu-btn" id="menuBtn">
+    MENU
+  </button>
+
+  <nav class="nav-menu">
+
+    <a href="#about">ABOUT</a>
+    <a href="#identity">IDENTITY</a>
+    <a href="#district">DISTRICT</a>
+    <a href="#join">JOIN</a>
+
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+  <div class="hero-meta">
+    <span>YBOISZ — TODAY</span>
+    <span>CREATOR COMMUNITY / 001</span>
+  </div>
+
+  <div class="hero-main">
+
+    <div class="hero-copy">
+
+      <div class="small-title">
+        YOUTH BEYOND IDENTITY & STYLE
+      </div>
+
+      <h1>
+        BEYOND
+        <span>ORDINARY.</span>
+      </h1>
+
+      <p>
+        A creator community built around
+        identity, style, connection and ideas.
+      </p>
+
+      <a href="#about" class="hero-link">
+        EXPLORE YBSZ <b>↗</b>
+      </a>
+
+    </div>
+
+
+    <div class="hero-symbol">
+
+      <div class="circle circle-one"></div>
+      <div class="circle circle-two"></div>
+
+      <div class="yb-symbol">
+        YB
+      </div>
+
+      <div class="vertical-text">
+        IDENTITY — STYLE — UNITY
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="scroll">
+    SCROLL TO EXPLORE ↓
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+  <div class="marquee-inner">
+
+    <span>
+      YOUTH BEYOND IDENTITY & STYLE ✳ YBSZ ✳
+    </span>
+
+    <span>
+      YOUTH BEYOND IDENTITY & STYLE ✳ YBSZ ✳
+    </span>
+
+    <span>
+      YOUTH BEYOND IDENTITY & STYLE ✳ YBSZ ✳
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+<div class="reveal">
+
+  <div class="section-label">
+    <span>01</span>
+    <span>THE STORY</span>
+  </div>
+
+  <div class="about-grid">
+
+    <h2>
+      MORE THAN
+      <br>
+      A COMMUNITY.
+    </h2>
+
+    <div class="about-text">
+
+      <p class="big-text">
+        Yboisz is a space for people to
+        connect, express themselves and
+        build something beyond ordinary.
+      </p>
+
+      <p>
+        Yboisz started in 2021 during the
+        lockdown era as an online boys
+        community — a place to chat,
+        hang out, game and build friendships.
+      </p>
+
+      <p>
+        As the community grew, so did the
+        vision. YB evolved beyond its original
+        circle into a creator community built
+        around people, ideas, style and
+        collaboration.
+      </p>
+
+      <p>
+        Today, Yboisz exists as a space where
+        people can meet, create, support,
+        connect and move forward together.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- HISTORY -->
+
+<section class="timeline-section">
+
+<div class="reveal">
+
+  <div class="section-label">
+    <span>02</span>
+    <span>THE EVOLUTION</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+
+      <span>2021 — 2023</span>
+
+      <h3>THE BEGINNING</h3>
+
+      <p>
+        Online community. Friends.
+        Gaming. Conversations.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+      <span>2024 — 2025</span>
+
+      <h3>YB LEGACY</h3>
+
+      <p>
+        The community expands and
+        becomes more open to new people.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item current">
+
+      <span>2025 — NOW</span>
+
+      <h3>YBOISZ — TODAY</h3>
+
+      <p>
+        A new identity built around
+        creators, connections and style.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- IDENTITY -->
+
+<section id="identity" class="section">
+
+<div class="reveal">
+
+  <div class="section-label">
+    <span>03</span>
+    <span>IDENTITY & STYLE</span>
+  </div>
+
+
+  <div class="identity-intro">
+
+    <h2>
+      THE LOOK.
+      <br>
+      THE FEEL.
+    </h2>
+
+    <p>
+      YBSZ is not defined by one look.
+      Identity comes from how you
+      express yourself.
+    </p>
+
+  </div>
+
+
+  <div class="identity-grid">
+
+
+    <div class="identity-card large">
+
+      <div class="fake-type">
+
+        <span>YOUTH</span>
+        <strong>BEYOND</strong>
+        <span>IDENTITY</span>
+        <strong>& STYLE.</strong>
+
+      </div>
+
+      <div class="card-info">
+
+        <small>
+          01 / TYPOGRAPHY
+        </small>
+
+        <b>
+          WORDS WITH WEIGHT.
+        </b>
+
+      </div>
+
+    </div>
+
+
+    <div class="identity-card">
+
+      <div class="fake-logo">
+        YB
+      </div>
+
+      <div class="card-info">
+
+        <small>
+          02 / LOGO SYSTEM
+        </small>
+
+        <b>
+          ONE IDENTITY.
+        </b>
+
+      </div>
+
+    </div>
+
+
+    <div class="identity-card red-card">
+
+      <div class="tag">
+        @YBOISZZ
+      </div>
+
+      <div class="card-info">
+
+        <small>
+          03 / BRANDING
+        </small>
+
+        <b>
+          MAKE YOUR MARK.
+        </b>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- DISTRICT -->
+
+<section id="district" class="district-section">
+
+<div class="reveal">
+
+  <div class="section-label">
+    <span>04</span>
+    <span>YB DISTRICT</span>
+  </div>
+
+
+  <div class="district-head">
+
+    <div>
+
+      <small>
+        FIRST COLLECTION
+      </small>
+
+      <h2>
+        YB
+        <br>
+        DISTRICT.
+      </h2>
+
+    </div>
+
+
+    <div class="coming">
+
+      COMING
+      <br>
+      SOON.
+
+    </div>
+
+  </div>
+
+
+  <div class="district-box">
+
+    <div class="district-logo">
+      YB
+    </div>
+
+    <div class="district-stamp">
+
+      YB DISTRICT®
+      <br>
+      FIRST LOOK / 001
+
+    </div>
+
+    <div class="district-center">
+
+      <span>
+        COLLECTION
+      </span>
+
+      <strong>
+        COMING SOON
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <div class="district-footer">
+
+    <p>
+      A collection built around the
+      identity of YBSZ. More than merch —
+      a statement.
+    </p>
+
+    <span>
+      RELEASE DATE: TBA
+    </span>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- JOIN -->
+
+<section id="join" class="section join-section">
+
+<div class="reveal">
+
+  <div class="section-label">
+    <span>05</span>
+    <span>GET INVOLVED</span>
+  </div>
+
+
+  <h2>
+    FIND YOUR
+    <br>
+    PEOPLE.
+  </h2>
+
+
+  <p class="join-intro">
+    Create. Connect. Collaborate.
+    Find your place within YBSZ.
+  </p>
+
+
+  <div class="join-grid">
+
+
+    <a
+      href="https://www.tiktok.com/@yboiszz"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="join-card"
+    >
+
+      <span>01</span>
+
+      <h3>
+        FOLLOW
+      </h3>
+
+      <p>
+        TikTok — @yboiszz
+      </p>
+
+      <b>↗</b>
+
+    </a>
+
+
+    <a
+      href="https://www.instagram.com/yboiszz"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="join-card"
+    >
+
+      <span>02</span>
+
+      <h3>
+        CONNECT
+      </h3>
+
+      <p>
+        Instagram — @yboiszz
+      </p>
+
+      <b>↗</b>
+
+    </a>
+
+
+    <a
+      href="https://www.tiktok.com/@yboiszz"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="join-card"
+    >
+
+      <span>03</span>
+
+      <h3>
+        COLLAB
+      </h3>
+
+      <p>
+        DM us on TikTok
+      </p>
+
+      <b>↗</b>
+
+    </a>
+
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-main">
+
+    <div>
+
+      <h2>
+        YBSZ<sup>®</sup>
+      </h2>
+
+      <p>
+        YOUTH BEYOND
+        <br>
+        IDENTITY & STYLE.
+      </p>
+
+    </div>
+
+
+    <div class="footer-nav">
+
+      <a href="#home">
+        HOME ↑
+      </a>
+
+      <a href="#about">
+        ABOUT
+      </a>
+
+      <a href="#identity">
+        IDENTITY
+      </a>
+
+      <a href="#district">
+        DISTRICT
+      </a>
+
+      <a href="#join">
+        JOIN
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      YBOISZ — TODAY
+    </span>
+
+    <span>
+      EST. 2021
+    </span>
+
+    <span>
+      YOUTH BEYOND IDENTITY & STYLE
+    </span>
+
+  </div>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.querySelector(".nav-menu");
+
+menuBtn.addEventListener("click", () => {
+
+  navMenu.classList.toggle("active");
+
+  menuBtn.textContent =
+    navMenu.classList.contains("active")
+    ? "CLOSE ×"
+    : "MENU +";
+
+});
+
+
+document.querySelectorAll(".nav-menu a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    navMenu.classList.remove("active");
+    menuBtn.textContent = "MENU +";
+
+  });
+
+});
+
+
+/* SCROLL REVEAL */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+const observer =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("show");
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+revealElements.forEach(element => {
+
+  observer.observe(element);
+
+});
+
+
+/* NAVBAR SCROLL */
+
+const navbar =
+  document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+  navbar.style.background =
+    window.scrollY > 30
+    ? "rgba(7,7,7,.97)"
+    : "rgba(7,7,7,.92)";
+
+});
+
+
+/* HERO MOUSE MOVEMENT */
+
+const heroSymbol =
+  document.querySelector(".hero-symbol");
+
+if (window.innerWidth > 800) {
+
+  document.addEventListener("mousemove", event => {
+
+    const x =
+      (event.clientX / window.innerWidth - .5) * 12;
+
+    const y =
+      (event.clientY / window.innerHeight - .5) * 12;
+
+    heroSymbol.style.transform =
+      `translate(${x}px, calc(-50% + ${y}px))`;
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
